@@ -1,0 +1,7 @@
+{{race.id}} - Lieu : {{race.location}}, Date : {{race.date | date:"dd/MM/yyyy"}} <br> 
+Participants :
+<ul *ngIf="race.ponies.length > 1">
+  <li *ngFor="let p of race.ponies">
+    {{p.name}}
+  </li>
+</ul>

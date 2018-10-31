@@ -1,0 +1,9 @@
+<h2>Entrez un nouveau poney</h2>
+
+<form (ngSubmit) ="onSubmit()">
+  Name : <input type="text" id="name" name="name" required [(ngModel)]="model.name"/>
+  Age : <input type="text" id="age" name="age" required [(ngModel)]="model.age"/>
+  Weight : <input type="text" id="weight" name="weight" required [(ngModel)]="model.weight"/>
+  Color : <input type="text" id="color" name="color" required [(ngModel)]="model.color"/><br>
+  <button type="submit">Save</button>
+</form>
