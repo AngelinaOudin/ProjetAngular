@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { RaceService } from '../race.service';
 import { Race } from '../race';
 import { Router } from '@angular/router';
+import { PonyService } from '../pony.service';
+import { Pony } from '../pony';
 
 @Component({
   selector: 'app-race-form',
@@ -10,8 +12,12 @@ import { Router } from '@angular/router';
 })
 export class RaceFormComponent implements OnInit {
   model: Race;
-  constructor(private service: RaceService, private router: Router) {
+  participants: Array<Pony>;
+  selected: Array<boolean>;
+  constructor(private service: RaceService, private router: Router, private ponyService: PonyService) {
     this.model = new Race();
+    this.ponyService.getAllPonies().subscribe(p => this.participants = p);
+    this.selected = new Array(this.participants.length);
    }
 
   ngOnInit() {
@@ -19,6 +25,11 @@ export class RaceFormComponent implements OnInit {
 
   onSubmit() {
     this.service.addRace(this.model);
+    this.selected.forEach((e, i) => {
+      if (e === true) {
+        this.model.ponies.push(this.participants[i]);
+      }
+    });
     this.router.navigate(['/']);
   }
 
