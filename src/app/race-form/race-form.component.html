@@ -4,6 +4,7 @@
   Location : <input type="text" id="location" name="location" required [(ngModel)]="model.location" /><br>
   Date : <input type="date" id="date" name="date" required [(ngModel)]="model.date" /><br>
   Participants :
+  <!--Le div fait la boucle for pour afficher chaque participants-->
   <div *ngFor="let p of participants">
     <input type="checkbox" id="p.id" name="p.name" [(ngModel)]="selected[p.id]" /><label>{{p.name}}</label>
   </div>
