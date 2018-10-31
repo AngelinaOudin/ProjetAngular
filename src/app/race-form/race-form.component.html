@@ -1,10 +1,8 @@
-<h2>Entrez une nouvelle course</h2>
+<h2>Enter a new race</h2>
 
 <form (ngSubmit)="onSubmit()">
-  Location : <input type="text" id="location" name="location" required [(ngModel)]="model.location" />
-  Date : <input type="date" id="date" name="date" required [(ngModel)]="model.date" />
-  Participants : 
-
-  <br>
+  Location : <input type="text" id="location" name="location" required [(ngModel)]="model.location" /><br>
+  Date : <input type="date" id="date" name="date" required [(ngModel)]="model.date" /><br>
+  Participants :<input type="checkbox"/>
   <button type="submit">Save</button>
 </form>

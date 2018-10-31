@@ -11,12 +11,14 @@ import { RaceDetailsComponent } from './race-details/race-details.component';
 import { RacesComponent } from './races/races.component';
 import { PonyFormComponent } from './pony-form/pony-form.component';
 import { RaceFormComponent } from './race-form/race-form.component';
+import { RunnersFormComponent } from './runners-form/runners-form.component';
 
 const routes: Routes = [
   {path: '', component: RacesComponent},
   {path: 'Ponies', component: PoniesComponent},
   {path: 'AddPonies', component: PonyFormComponent},
-  {path: 'AddRaces', component: RaceFormComponent}
+  {path: 'AddRaces', component: RaceFormComponent},
+  {path: 'AddRunners', component: RunnersFormComponent}
 ];
 
 @NgModule({
@@ -27,7 +29,8 @@ const routes: Routes = [
     RaceDetailsComponent,
     RacesComponent,
     PonyFormComponent,
-    RaceFormComponent
+    RaceFormComponent,
+    RunnersFormComponent
   ],
   imports: [
     BrowserModule,
