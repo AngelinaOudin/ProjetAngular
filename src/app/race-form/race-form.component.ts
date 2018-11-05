@@ -4,6 +4,7 @@ import { Race } from '../race';
 import { Router } from '@angular/router';
 import { PonyService } from '../pony.service';
 import { Pony } from '../pony';
+import { NgbCalendar, NgbDateStruct } from '@ng-bootstrap/ng-bootstrap';
 
 @Component({
   selector: 'app-race-form',
@@ -12,24 +13,26 @@ import { Pony } from '../pony';
 })
 export class RaceFormComponent implements OnInit {
   model: Race;
-  participants: Array<Pony>;
-  selected: Array<boolean>;
-  constructor(private service: RaceService, private router: Router, private ponyService: PonyService) {
+  ponies: Array<Pony>;
+  dateModel: NgbDateStruct;
+  date: {year: number, month: number};
+
+  constructor(private service: RaceService,
+    private calendar: NgbCalendar,
+    private router: Router,
+    private ponyService: PonyService) {
+    this.dateModel = this.calendar.getToday();
     this.model = new Race();
-    this.ponyService.getAllPonies().subscribe(p => this.participants = p);
-    this.selected = new Array(this.participants.length);
-   }
+    this.ponyService.getAllPonies().subscribe(p => this.ponies = p);
+  }
 
   ngOnInit() {
   }
 
   onSubmit() {
+    // Attention : le -1 est dégueulasse, mais bug
+    this.model.date = new Date(this.dateModel.year, this.dateModel.month - 1, this.dateModel.day);
     this.service.addRace(this.model);
-    this.selected.forEach((e, i) => {
-      if (e === true) {
-        this.model.ponies.push(this.participants[i]);
-      }
-    });
     this.router.navigate(['/']);
   }
 

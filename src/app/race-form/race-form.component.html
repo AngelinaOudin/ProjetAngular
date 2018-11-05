@@ -2,11 +2,15 @@
 
 <form (ngSubmit)="onSubmit()">
   Location : <input type="text" id="location" name="location" required [(ngModel)]="model.location" /><br>
-  Date : <input type="date" id="date" name="date" required [(ngModel)]="model.date" /><br>
+  Date : <ngb-datepicker #dp [(ngModel)]="dateModel" [ngModelOptions]="{standalone: true}"></ngb-datepicker><br>
   Participants :
-  <!--Le div fait la boucle for pour afficher chaque participants-->
-  <div *ngFor="let p of participants">
-    <input type="checkbox" id="p.id" name="p.name" [(ngModel)]="selected[p.id]" /><label>{{p.name}}</label>
-  </div>
+  <!--Fait un Drag&Drop-->
+  <p-pickList [source]="ponies" [target]="model.ponies" [responsive]="true" dragdrop="true" dragdropScope="ponies">
+    <ng-template let-pony pTemplate="item">
+        <div class="ui-helper-clearfix">
+            {{pony.name}}
+        </div>
+    </ng-template>
+</p-pickList>
   <button type="submit">Save</button>
 </form>
