@@ -3,7 +3,8 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { FormsModule } from '@angular/forms';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
-import {PickListModule} from 'primeng/picklist';
+import { PickListModule } from 'primeng/picklist';
+import { ReactiveFormsModule } from '@angular/forms';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -14,13 +15,15 @@ import { RacesComponent } from './races/races.component';
 import { PonyFormComponent } from './pony-form/pony-form.component';
 import { RaceFormComponent } from './race-form/race-form.component';
 import { RunnersFormComponent } from './runners-form/runners-form.component';
+import { PonyReactiveFormComponent } from './pony-reactive-form/pony-reactive-form.component';
+import { RaceReactiveFormComponent } from './race-reactive-form/race-reactive-form.component';
 
 const routes: Routes = [
-  {path: '', component: RacesComponent},
-  {path: 'Ponies', component: PoniesComponent},
-  {path: 'AddPonies', component: PonyFormComponent},
-  {path: 'AddRaces', component: RaceFormComponent},
-  {path: 'AddRunners', component: RunnersFormComponent}
+  { path: '', component: RacesComponent },
+  { path: 'Ponies', component: PoniesComponent },
+  { path: 'AddPonies', component: PonyReactiveFormComponent },
+  { path: 'AddRaces', component: RaceReactiveFormComponent },
+  { path: 'AddRunners', component: RunnersFormComponent }
 ];
 
 @NgModule({
@@ -32,7 +35,9 @@ const routes: Routes = [
     RacesComponent,
     PonyFormComponent,
     RaceFormComponent,
-    RunnersFormComponent
+    RunnersFormComponent,
+    PonyReactiveFormComponent,
+    RaceReactiveFormComponent,
   ],
   imports: [
     BrowserModule,
@@ -40,7 +45,8 @@ const routes: Routes = [
     RouterModule.forRoot(routes),
     FormsModule,
     NgbModule,
-    PickListModule
+    PickListModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

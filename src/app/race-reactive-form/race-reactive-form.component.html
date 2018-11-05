@@ -1,0 +1,25 @@
+<h2>Enter a new race</h2>
+
+<form [formGroup]="raceForm" (ngSubmit)="onSubmit()">
+  Location : <input type="text" id="location" name="location" formControlName="location" /><br>
+  Date : <ngb-datepicker #dp formControlName="date"></ngb-datepicker><br>
+  Participants :
+  <p-pickList sourceHeader="Disponibles" targetHeader="Sélectionnés" [source]="poneys" [target]="raceForm.runners"
+    [responsive]="true" dragdrop="true" dragdropScope="poneys">
+    <ng-template let-pony pTemplate="item">
+      <div class="ui-helper-clearfix">
+        {{pony.name}}
+      </div>
+    </ng-template>
+  </p-pickList>
+
+  <button type="submit">Enregistrer</button>
+</form>
+
+<p>
+  Valeur : {{raceForm.value | json}}
+</p>
+
+<p>
+  Status : {{raceForm.status}}
+</p>
