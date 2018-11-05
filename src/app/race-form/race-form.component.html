@@ -2,15 +2,15 @@
 
 <form (ngSubmit)="onSubmit()">
   Location : <input type="text" id="location" name="location" required [(ngModel)]="model.location" /><br>
-  Date : <ngb-datepicker #dp [(ngModel)]="dateModel" [ngModelOptions]="{standalone: true}"></ngb-datepicker><br>
-  Participants :
-  <!--Fait un Drag&Drop-->
-  <p-pickList [source]="ponies" [target]="model.ponies" [responsive]="true" dragdrop="true" dragdropScope="ponies">
-    <ng-template let-pony pTemplate="item">
-        <div class="ui-helper-clearfix">
-            {{pony.name}}
-        </div>
-    </ng-template>
-</p-pickList>
-  <button type="submit">Save</button>
+  Date : <ngb-datepicker #dp [(ngModel)]="dateModel" [ngModelOptions]="{standalone: true}"></ngb-datepicker>
+<br>
+  Participants : <p-pickList [source]="ponies" [target]="model.ponies" [responsive]="true" dragdrop="true" dragdropScope="ponies">
+      <ng-template let-pony pTemplate="item">
+          <div class="ui-helper-clearfix">
+              {{pony.name}}
+          </div>
+      </ng-template>
+  </p-pickList>
+
+  <button type="submit">Enregistrer</button>
 </form>

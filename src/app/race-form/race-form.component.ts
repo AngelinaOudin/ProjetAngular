@@ -15,23 +15,21 @@ export class RaceFormComponent implements OnInit {
   model: Race;
   ponies: Array<Pony>;
   dateModel: NgbDateStruct;
-  date: {year: number, month: number};
-
+  date: {year: number, month: number, day: number};
   constructor(private service: RaceService,
+    private poneyService: PonyService,
     private calendar: NgbCalendar,
-    private router: Router,
-    private ponyService: PonyService) {
-    this.dateModel = this.calendar.getToday();
-    this.model = new Race();
-    this.ponyService.getAllPonies().subscribe(p => this.ponies = p);
-  }
+    private router: Router) {
+      this.dateModel = this.calendar.getToday();
+      this.model = new Race();
+      this.poneyService.getAllPonies().subscribe(p => this.ponies = p);
+     }
 
   ngOnInit() {
   }
 
   onSubmit() {
-    // Attention : le -1 est dégueulasse, mais bug
-    this.model.date = new Date(this.dateModel.year, this.dateModel.month - 1, this.dateModel.day);
+    this.model.date = new Date(this.dateModel.year, this.dateModel.month, this.dateModel.day);
     this.service.addRace(this.model);
     this.router.navigate(['/']);
   }
