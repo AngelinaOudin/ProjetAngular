@@ -9,7 +9,6 @@ import { Observable, of } from 'rxjs';
 export class RaceService {
   races: Array<Race>;
   constructor() {
-    this.races = [];
     this.races = RACES;
   }
 

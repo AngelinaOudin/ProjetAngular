@@ -15,7 +15,7 @@ export class RaceFormComponent implements OnInit {
   model: Race;
   ponies: Array<Pony>;
   dateModel: NgbDateStruct;
-  date: {year: number, month: number, day: number};
+
   constructor(private service: RaceService,
     private poneyService: PonyService,
     private calendar: NgbCalendar,
