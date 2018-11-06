@@ -14,6 +14,7 @@ import { Pony } from '../pony';
 })
 export class RaceReactiveFormComponent implements OnInit {
   poneys: Array<Pony>;
+  poniesTarget: Array<Pony>;
   raceForm = this.fb.group({
     location: ['location', Validators.required],
     date: [new Date()],
@@ -23,6 +24,7 @@ export class RaceReactiveFormComponent implements OnInit {
   constructor(private fb: FormBuilder, private service: RaceService,
     private router: Router, private ponyService: PonyService) {
       this.poneys = [];
+      this.poniesTarget = [];
       this.ponyService.getAllPonies().subscribe((p) => this.poneys = p);
   }
 
@@ -33,6 +35,8 @@ export class RaceReactiveFormComponent implements OnInit {
     const dateForm: Date = new Date(this.raceForm.value.date.year, this.raceForm.value.date.month, this.raceForm.value.date.day);
     console.log(dateForm);
     const r: Race = new Race(this.raceForm.value.location, dateForm);
+    r.ponies = this.poniesTarget;
+    this.raceForm.value.runners = r.ponies;
     this.service.addRace(r);
     this.router.navigate(['/']);
   }

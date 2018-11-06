@@ -4,7 +4,7 @@
   Location : <input type="text" id="location" name="location" formControlName="location" /><br>
   Date : <ngb-datepicker #dp formControlName="date"></ngb-datepicker><br>
   Participants :
-  <p-pickList sourceHeader="Disponibles" targetHeader="Sélectionnés" [source]="poneys" [target]="raceForm.runners"
+  <p-pickList sourceHeader="Disponibles" targetHeader="Sélectionnés" [source]="poneys" [target]="poniesTarget"
     [responsive]="true" dragdrop="true" dragdropScope="poneys">
     <ng-template let-pony pTemplate="item">
       <div class="ui-helper-clearfix">
