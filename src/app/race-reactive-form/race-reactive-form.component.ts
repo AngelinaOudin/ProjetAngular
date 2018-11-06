@@ -23,9 +23,9 @@ export class RaceReactiveFormComponent implements OnInit {
 
   constructor(private fb: FormBuilder, private service: RaceService,
     private router: Router, private ponyService: PonyService) {
-      this.poneys = [];
-      this.poniesTarget = [];
-      this.ponyService.getAllPonies().subscribe((p) => this.poneys = p);
+    this.poneys = [];
+    this.poniesTarget = [];
+    this.ponyService.getAllPonies().subscribe((p) => this.poneys = p);
   }
 
   ngOnInit() {
@@ -36,7 +36,9 @@ export class RaceReactiveFormComponent implements OnInit {
     console.log(dateForm);
     const r: Race = new Race(this.raceForm.value.location, dateForm);
     r.ponies = this.poniesTarget;
-    this.raceForm.value.runners = r.ponies;
+    for (const p of this.poniesTarget) {
+      this.poneys.push(p);
+    }
     this.service.addRace(r);
     this.router.navigate(['/']);
   }
