@@ -36,9 +36,7 @@ export class RaceReactiveFormComponent implements OnInit {
     console.log(dateForm);
     const r: Race = new Race(this.raceForm.value.location, dateForm);
     r.ponies = this.poniesTarget;
-    for (const p of this.poniesTarget) {
-      this.poneys.push(p);
-    }
+    this.poniesTarget.forEach((p) => this.poneys.push(p));
     this.service.addRace(r);
     this.router.navigate(['/']);
   }

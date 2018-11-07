@@ -7,6 +7,7 @@ import { Observable, of } from 'rxjs';
   providedIn: 'root'
 })
 export class RaceService {
+  url: String = 'http://localhost:8080/api/races/';
   races: Array<Race>;
   constructor() {
     this.races = RACES;
