@@ -19,8 +19,8 @@ export class PonyReactiveFormComponent implements OnInit {
   });
 
   constructor(private fb: FormBuilder,
-    private service: PonyService,
-    private router: Router) { }
+    private service: PonyService
+  ) { }
 
   ngOnInit() {
   }
@@ -28,6 +28,5 @@ export class PonyReactiveFormComponent implements OnInit {
   onSubmit() {
     const p: Pony = this.ponyForm.value;
     this.service.addPony(p);
-    this.router.navigate(['/Ponies']);
   }
 }

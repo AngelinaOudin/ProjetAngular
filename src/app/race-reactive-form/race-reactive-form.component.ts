@@ -38,6 +38,5 @@ export class RaceReactiveFormComponent implements OnInit {
     r.ponies = this.poniesTarget;
     this.poniesTarget.forEach((p) => this.poneys.push(p));
     this.service.addRace(r);
-    this.router.navigate(['/']);
   }
 }

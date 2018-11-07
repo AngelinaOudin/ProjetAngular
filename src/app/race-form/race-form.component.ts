@@ -18,8 +18,7 @@ export class RaceFormComponent implements OnInit {
 
   constructor(private service: RaceService,
     private poneyService: PonyService,
-    private calendar: NgbCalendar,
-    private router: Router) {
+    private calendar: NgbCalendar) {
       this.dateModel = this.calendar.getToday();
       this.model = new Race();
       this.poneyService.getAllPonies().subscribe(p => this.ponies = p);
@@ -31,7 +30,7 @@ export class RaceFormComponent implements OnInit {
   onSubmit() {
     this.model.date = new Date(this.dateModel.year, this.dateModel.month, this.dateModel.day);
     this.service.addRace(this.model);
-    this.router.navigate(['/']);
+    this.model = new Race();
   }
 
 }

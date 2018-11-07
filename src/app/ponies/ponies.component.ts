@@ -9,7 +9,7 @@ import { PonyService } from '../pony.service';
 })
 export class PoniesComponent implements OnInit {
 
-  ponies: Array<Pony>;
+  ponies: Array<Pony> = [];
   constructor(private service: PonyService) {
     this.service.getAllPonies().subscribe(p => this.ponies = p);
    }

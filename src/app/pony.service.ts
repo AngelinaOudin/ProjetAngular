@@ -1,9 +1,9 @@
 import { Injectable } from '@angular/core';
 import { Pony } from './pony';
-import { PONIES } from './ponies-mock';
-import { Observable, of } from 'rxjs';
+import { Observable } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
 import { HttpHeaders } from '@angular/common/http';
+import { Router } from '@angular/router';
 
 @Injectable({
   providedIn: 'root'
@@ -16,7 +16,7 @@ export class PonyService {
     })
   };
 
-  constructor(private http: HttpClient) {
+  constructor(private http: HttpClient, private router: Router) {
   }
 
   getAllPonies(): Observable<Array<Pony>> {
@@ -25,6 +25,7 @@ export class PonyService {
 
   addPony(pony: Pony): void {
     // this.ponies.push(pony);
-    this.http.post<Array<Pony>>(this.url + '/', pony, this.httpOptions).subscribe();
+    this.http.post<Array<Pony>>(this.url + '/', pony, this.httpOptions)
+      .subscribe(() => this.router.navigate(['/Ponies']));
   }
 }
