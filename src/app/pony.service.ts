@@ -37,4 +37,9 @@ export class PonyService {
     this.http.put<Array<Pony>>(this.url + '/' + id, pony, this.httpOptions)
       .subscribe(() => this.router.navigate(['/Ponies']));
   }
+
+  deletePony(id: number): void {
+    this.http.delete(this.url + '/' + id, this.httpOptions)
+      .subscribe(() => this.router.navigate(['/Ponies']));
+  }
 }
