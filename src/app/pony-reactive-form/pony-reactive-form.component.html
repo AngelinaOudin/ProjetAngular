@@ -1,11 +1,13 @@
-<h2>Entrez un nouveau poney</h2>
+<h2 *ngIf="add">Entrez un nouveau poney</h2>
+<h2 *ngIf="!add">Modifiez {{ponyForm.value.name}}</h2>
 
 <form [formGroup]="ponyForm" (ngSubmit)="onSubmit()">
   Name : <input type="text" id="name" name="name" formControlName="name"/>
   Age : <input type="text" id="age" name="age" formControlName="age"/>
   Weight : <input type="text" id="weight" name="weight" formControlName="weight"/>
   Color : <input type="text" id="color" name="color" formControlName="color"/><br>
-  <button type="submit" [disabled]="!ponyForm.valid">Save</button>
+  <button *ngIf="add" type="submit">Save</button>
+  <button *ngIf="!add" type="submit">Update</button>
 </form>
 
 <p>

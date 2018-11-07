@@ -18,13 +18,16 @@ import { RaceFormComponent } from './race-form/race-form.component';
 import { RunnersFormComponent } from './runners-form/runners-form.component';
 import { PonyReactiveFormComponent } from './pony-reactive-form/pony-reactive-form.component';
 import { RaceReactiveFormComponent } from './race-reactive-form/race-reactive-form.component';
+import { PonyComponent } from './pony/pony.component';
 
 const routes: Routes = [
   { path: '', component: RacesComponent },
   { path: 'Ponies', component: PoniesComponent },
   { path: 'AddPonies', component: PonyReactiveFormComponent },
+  { path: 'UpdatePony/:id', component: PonyReactiveFormComponent },
   { path: 'AddRaces', component: RaceReactiveFormComponent },
-  { path: 'AddRunners', component: RunnersFormComponent }
+  { path: 'AddRunners', component: RunnersFormComponent },
+  { path: 'Pony/:id', component: PonyComponent } // Permet d'afficher un poney selon l'id
 ];
 
 @NgModule({
@@ -39,6 +42,7 @@ const routes: Routes = [
     RunnersFormComponent,
     PonyReactiveFormComponent,
     RaceReactiveFormComponent,
+    PonyComponent,
   ],
   imports: [
     BrowserModule,

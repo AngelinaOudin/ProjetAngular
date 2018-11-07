@@ -23,9 +23,18 @@ export class PonyService {
     return this.http.get<Array<Pony>>(this.url + '/', this.httpOptions);
   }
 
+  getPony(id: number): Observable<Pony> {
+    return this.http.get<Pony>(this.url + '/' + id, this.httpOptions);
+  }
+
   addPony(pony: Pony): void {
     // this.ponies.push(pony);
     this.http.post<Array<Pony>>(this.url + '/', pony, this.httpOptions)
+      .subscribe(() => this.router.navigate(['/Ponies']));
+  }
+
+  updatePony(id: number, pony: Pony) {
+    this.http.put<Array<Pony>>(this.url + '/' + id, pony, this.httpOptions)
       .subscribe(() => this.router.navigate(['/Ponies']));
   }
 }
