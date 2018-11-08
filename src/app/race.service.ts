@@ -36,6 +36,7 @@ export class RaceService {
   }
 
   deleteRace(id: number) {
-    this.http.delete(this.url + '/' + id, this.httpOptions);
+    this.http.delete(this.url + '/' + id, this.httpOptions)
+      .subscribe(() => this.router.navigate(['/']));
   }
 }

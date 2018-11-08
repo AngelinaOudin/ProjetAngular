@@ -1,5 +1,5 @@
 <h1>{{title}}</h1>
-<h3>Bienvenue {{identifiant}}</h3>
+
 
 <nav>
     <div *ngIf="connect === false">
@@ -8,13 +8,15 @@
         </form>
     </div>
     <div *ngIf="connect === true">
+        <h3>Bienvenue {{identifiant}}</h3>
         <form (ngSubmit)="onSubmitDeconnection()">
             <button type="submit">Se déconnecter</button>
         </form>
+        <a routerLink="/">Races</a> |
+        <a routerLink="/Ponies">Ponies</a> |
+        <a routerLink="/AddPonies">Add Ponies</a> |
+        <a routerLink="/AddRaces">Add Races</a>
     </div>
-    <a routerLink="/">Races</a>
-    <a routerLink="/Ponies">Ponies</a>
-    <a routerLink="/AddPonies">Add Ponies</a>
-    <a routerLink="/AddRaces">Add Races</a>
+
 </nav>
 <router-outlet></router-outlet>

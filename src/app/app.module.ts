@@ -22,6 +22,7 @@ import { DeletePonyComponent } from './delete-pony/delete-pony.component';
 import { ConnectionReactiveFormComponent } from './connection-reactive-form/connection-reactive-form.component';
 import { RaceComponent } from './race/race.component';
 import { PonyTransformPipe } from './pony-transform.pipe';
+import { DeleteRaceComponent } from './delete-race/delete-race.component';
 
 const routes: Routes = [
   { path: '', component: RacesComponent },
@@ -32,6 +33,7 @@ const routes: Routes = [
   { path: 'UpdateRace/:id', component: RaceReactiveFormComponent },
   { path: 'Pony/:id', component: PonyComponent }, // Permet d'afficher un poney selon l'id
   { path: 'DeletePony/:id', component: DeletePonyComponent },
+  { path: 'DeleteRace/:id', component: DeleteRaceComponent },
   { path: 'Connecting', component: ConnectionReactiveFormComponent},
   { path: 'Race/:id', component: RaceComponent}
 ];
@@ -51,7 +53,8 @@ const routes: Routes = [
     DeletePonyComponent,
     ConnectionReactiveFormComponent,
     RaceComponent,
-    PonyTransformPipe
+    PonyTransformPipe,
+    DeleteRaceComponent
   ],
   imports: [
     BrowserModule,
