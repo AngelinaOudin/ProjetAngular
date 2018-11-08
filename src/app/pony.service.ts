@@ -39,7 +39,6 @@ export class PonyService {
   }
 
   deletePony(id: number): void {
-    this.http.delete(this.url + '/' + id, this.httpOptions)
-      .subscribe(() => this.router.navigate(['/Ponies']));
+    this.http.delete(this.url + '/' + id, this.httpOptions).subscribe(() => this.router.navigate(['/Ponies']));
   }
 }

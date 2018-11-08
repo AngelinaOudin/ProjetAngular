@@ -1,10 +1,20 @@
 <h1>{{title}}</h1>
+<h3>Bienvenue {{identifiant}}</h3>
 
 <nav>
+    <div *ngIf="connect === false">
+        <form (ngSubmit)="onSubmitConnection()">
+            <button type="submit">Se connecter</button>
+        </form>
+    </div>
+    <div *ngIf="connect === true">
+        <form (ngSubmit)="onSubmitDeconnection()">
+            <button type="submit">Se déconnecter</button>
+        </form>
+    </div>
     <a routerLink="/">Races</a>
     <a routerLink="/Ponies">Ponies</a>
     <a routerLink="/AddPonies">Add Ponies</a>
     <a routerLink="/AddRaces">Add Races</a>
-    <a routerLink="/AddRunners">Add Runners</a>
 </nav>
 <router-outlet></router-outlet>

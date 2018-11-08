@@ -25,4 +25,17 @@ export class RaceService {
     this.http.post<Array<Race>>(this.url + '/', race, this.httpOptions)
       .subscribe(() => this.router.navigate(['/']));
   }
+
+  getRace(id: number): Observable<Race> {
+    return this.http.get<Race>(this.url + '/' + id, this.httpOptions);
+  }
+
+  updateRace(id: number, race: Race) {
+    this.http.put(this.url + '/' + id, race, this.httpOptions)
+      .subscribe(() => this.router.navigate(['/']));
+  }
+
+  deleteRace(id: number) {
+    this.http.delete(this.url + '/' + id, this.httpOptions);
+  }
 }

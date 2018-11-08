@@ -15,11 +15,13 @@ import { RaceDetailsComponent } from './race-details/race-details.component';
 import { RacesComponent } from './races/races.component';
 import { PonyFormComponent } from './pony-form/pony-form.component';
 import { RaceFormComponent } from './race-form/race-form.component';
-import { RunnersFormComponent } from './runners-form/runners-form.component';
 import { PonyReactiveFormComponent } from './pony-reactive-form/pony-reactive-form.component';
 import { RaceReactiveFormComponent } from './race-reactive-form/race-reactive-form.component';
 import { PonyComponent } from './pony/pony.component';
 import { DeletePonyComponent } from './delete-pony/delete-pony.component';
+import { ConnectionReactiveFormComponent } from './connection-reactive-form/connection-reactive-form.component';
+import { RaceComponent } from './race/race.component';
+import { PonyTransformPipe } from './pony-transform.pipe';
 
 const routes: Routes = [
   { path: '', component: RacesComponent },
@@ -27,9 +29,11 @@ const routes: Routes = [
   { path: 'AddPonies', component: PonyReactiveFormComponent },
   { path: 'UpdatePony/:id', component: PonyReactiveFormComponent },
   { path: 'AddRaces', component: RaceReactiveFormComponent },
-  { path: 'AddRunners', component: RunnersFormComponent },
+  { path: 'UpdateRace/:id', component: RaceReactiveFormComponent },
   { path: 'Pony/:id', component: PonyComponent }, // Permet d'afficher un poney selon l'id
-  { path: 'DeletePony/:id', component: DeletePonyComponent }
+  { path: 'DeletePony/:id', component: DeletePonyComponent },
+  { path: 'Connecting', component: ConnectionReactiveFormComponent},
+  { path: 'Race/:id', component: RaceComponent}
 ];
 
 @NgModule({
@@ -41,11 +45,13 @@ const routes: Routes = [
     RacesComponent,
     PonyFormComponent,
     RaceFormComponent,
-    RunnersFormComponent,
     PonyReactiveFormComponent,
     RaceReactiveFormComponent,
     PonyComponent,
     DeletePonyComponent,
+    ConnectionReactiveFormComponent,
+    RaceComponent,
+    PonyTransformPipe
   ],
   imports: [
     BrowserModule,

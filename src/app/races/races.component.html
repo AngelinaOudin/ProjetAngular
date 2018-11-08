@@ -2,5 +2,7 @@
 <ul *ngIf="races.length > 0">
     <li *ngFor="let r of races">
       <app-race-details [race]="r"></app-race-details>
+      <a routerLink="/Race/{{r.id}}">Afficher</a>
+      <a routerLink="/UpdateRace/{{r.id}}">Modifier</a>
     </li>
   </ul>

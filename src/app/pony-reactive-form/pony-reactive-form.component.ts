@@ -33,7 +33,7 @@ export class PonyReactiveFormComponent implements OnInit {
       this.add = false;
       const id = parseInt(this.route.snapshot.paramMap.get('id'), 0);
       this.idPony = id;
-      this.service.getPony(id).subscribe( p => this.ponyForm.setValue({
+      this.service.getPony(id).subscribe(p => this.ponyForm.setValue({
         name: p.name,
         age: p.age,
         color: p.color,

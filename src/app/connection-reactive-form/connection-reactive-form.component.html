@@ -1,0 +1,9 @@
+<form [formGroup]="connectForm" (ngSubmit)="onSubmit()">
+  Login : <input type="text" id="login" name="login" formControlName="login" /><br>
+  Pass : <input type="password" id="password" name="password" formControlName="password" /><br>
+  <button type="submit">Connecting</button>
+</form>
+
+<p>
+  Valeur : {{connectForm.value | json}}
+</p>
