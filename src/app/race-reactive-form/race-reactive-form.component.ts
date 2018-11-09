@@ -3,7 +3,7 @@ import { FormBuilder, Validators } from '@angular/forms';
 import { Race } from '../race';
 import { RaceService } from '../race.service';
 import { PonyService } from '../pony.service';
-import { NgbCalendar } from '@ng-bootstrap/ng-bootstrap';
+import { NgbCalendar, NgbDateStruct } from '@ng-bootstrap/ng-bootstrap';
 import { Router, ActivatedRoute } from '@angular/router';
 import { Pony } from '../pony';
 
@@ -16,6 +16,8 @@ export class RaceReactiveFormComponent implements OnInit {
   idRace: number;
   poneys: Array<Pony>;
   poniesTarget: Array<Pony>;
+  dateModel: NgbDateStruct;
+  date: {year: number, month: number, day: number};
   raceForm = this.fb.group({
     location: ['location', Validators.required],
     date: [new Date()],
