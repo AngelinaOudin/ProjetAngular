@@ -8,6 +8,7 @@ import { Race } from '../race';
 })
 export class RaceDetailsComponent implements OnInit {
   @Input() race: Race;
+  // tslint:disable-next-line:no-output-on-prefix
   @Output() onClick = new EventEmitter<Race>();
   constructor() { }
 
